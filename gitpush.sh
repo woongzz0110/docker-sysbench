@@ -26,5 +26,7 @@ git commit --allow-empty-message -am "$NOW: $MESSAGE"
 echo
 
 echo "** PUSH **"
-git push origin master --follow-tags --force
+git push https://github.com/woongzz0110/docker-sysbench.git master --follow-tags --force
 echo
+
+ssh-keygen -C "woongzz0110@example.com"
