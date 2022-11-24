@@ -2,9 +2,8 @@ name: DockerHub Publish
 
 on:
   push:
-    branches: [ master ]
-  pull_request:
-    branches: [ master ]
+    tags:
+      - '*'
 
 jobs:
 
@@ -21,9 +20,8 @@ jobs:
     
     - name: build and release to DockerHub
       env:
-        NAME: woongzz0110 # 계정 명
-        REPO: sysbench # 레포 이름
+        REPOSITORY: woongzz0110/sysbench
       run: |
-        docker build -t $REPO .
-        docker tag $REPO:latest $NAME/$REPO:latest
-        docker push $NAME/$REPO:latest
+        docker build -t $REPOSITORY .
+        docker tag $REPOSITORY:latest $REPOSITORY:$GITHUB_REF_NAME
+        docker push $REPOSITORY:$GITHUB_REF_NAME
