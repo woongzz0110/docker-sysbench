@@ -24,5 +24,5 @@ git commit --allow-empty-message -am "$NOW: $MESSAGE"
 echo
 
 echo "PUSH"
-git push https://$GITHUB_USERNAME:$GITHUB_PASSWORD@$GITHUB_URL master --follow-tags
+git push https://$GITHUB_USERNAME:$GITHUB_PASSWORD@$GITHUB_URL master --follow-tags --force
 echo
