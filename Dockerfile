@@ -25,6 +25,9 @@ WORKDIR /woongzz0110/sysbench
 RUN cp -rf /clone/sysbench/src/lua/*.lua /woongzz0110/sysbench/lua
 RUN rm -rf /clone
 
+ADD ./src/run /woongzz0110/sysbench/src/run
+RUN chmod +x -R /woongzz0110/sysbench/src/run
+
 VOLUME [ "/woongzz0110/sysbench" ]
 ########################
 
@@ -32,4 +35,4 @@ ADD ./src/entrypoint.sh /entrypoint.sh
 RUN chmod +x -R /entrypoint.sh
 
 USER 1001
-ENTRYPOINT [ "/entrypoint.sh" ]
+CMD [ "/entrypoint.sh" ]
