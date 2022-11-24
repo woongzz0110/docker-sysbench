@@ -25,3 +25,12 @@ jobs:
         docker build -t $REPOSITORY .
         docker tag $REPOSITORY:latest $REPOSITORY:$GITHUB_REF_NAME
         docker push $REPOSITORY:$GITHUB_REF_NAME
+
+    - name: uplaod Dockerhub readme
+      uses: peter-evans/dockerhub-description@v3
+      with:
+        username: ${{secrets.DOCKERHUB_USERNAME}}
+        password: ${{secrets.DOCKERHUB_TOKEN}}
+        repository: woongzz0110/sysbench
+        readme-filepath: README.md
+        short-description: ${{github.event.repository.description}}
