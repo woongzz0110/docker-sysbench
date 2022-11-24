@@ -1,5 +1,4 @@
 #!/bin/bash
-# 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
 
 GITHUB_USERNAME="woongzz0110"
 GITHUB_PASSWORD="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"
