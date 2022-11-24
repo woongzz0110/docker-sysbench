@@ -3,7 +3,7 @@
 
 GITHUB_USERNAME="woongzz0110"
 GITHUB_PASSWORD="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"
-GITHUB_URL="https://github.com/woongzz0110/docker-sysbench.git"
+GITHUB_URL="github.com/woongzz0110/docker-sysbench.git"
 
 while getopts m:t: opt
 do
