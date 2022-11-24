@@ -9,11 +9,11 @@ do
 done
 
 git add .
-if [ $TAG != "" ]; then
+if [ "$TAG" != "" ]; then
     git tag $TAG
 fi
 COMMIT_OPT=""
-if [ $MESSAGE != "" ]; then
+if [ "$MESSAGE" != "" ]; then
     COMMIT_OPT="$COMMIT_OPT -m $MESSAGE"
 fi
 git commit $COMMIT_OPT
