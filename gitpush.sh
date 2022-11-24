@@ -12,7 +12,7 @@ git add .
 if [ "$TAG" != "" ]; then
     git tag $TAG
 fi
-COMMIT_OPT=""
+COMMIT_OPT="--allow-empty-message"
 if [ "$MESSAGE" != "" ]; then
     COMMIT_OPT="$COMMIT_OPT -m $MESSAGE"
 fi
