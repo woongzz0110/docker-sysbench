@@ -14,4 +14,4 @@ if [ $TAG == ""]; then
 else
     git commit -m $MESSAGE -t $TAG
 fi
-git push origin master --follow-tags
+git push origin master --tags
