@@ -16,7 +16,7 @@ do
 done
 
 if [ "$TAG" != "" ]; then
-    echo "ADD TAG"
+    echo "TAG"
     git tag $TAG
     echo
 fi
