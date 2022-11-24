@@ -1,6 +1,11 @@
 # WOONGZZ0110 SYSBENCH
 
 
+## VERSION
+`0.0.1`
+
+---
+
 ## Run by script
 - RUN COMMAND
 
