@@ -26,5 +26,5 @@ git commit --allow-empty-message -am "$NOW: $MESSAGE"
 echo
 
 echo "** PUSH **"
-git push https://github.com/woongzz0110/docker-sysbench.git master --follow-tags --force
+git push git@github.com/woongzz0110/docker-sysbench.git master --follow-tags --force
 echo
