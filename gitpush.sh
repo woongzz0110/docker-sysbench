@@ -28,5 +28,3 @@ echo
 echo "** PUSH **"
 git push https://github.com/woongzz0110/docker-sysbench.git master --follow-tags --force
 echo
-
-ssh-keygen -C "woongzz0110@example.com"
