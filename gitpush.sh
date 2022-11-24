@@ -9,5 +9,9 @@ do
 done
 
 git add .
-git commit -m $MESSAGE -t $TAG 
+if [ $TAG == ""]; then
+    git commit -m $MESSAGE
+else
+    git commit -m $MESSAGE -t $TAG
+fi
 git push origin master --tags
