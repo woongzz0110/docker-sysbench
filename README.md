@@ -1,14 +1,21 @@
 # WOONGZZ0110 SYSBENCH
 
-## Run by script
-- RUN COMMAND
+## TL;DR
+```
+docker run --name sysbench woongzz0110/sysbench:latest sysbench --db-driver=mysql --mysql-host=YOUR_HOST --mysql-port=YOUR_PORT --mysql-user=YOUR_USER --mysql-password=YOUR_PW /woongzz0110/sysbench/lua/oltp_read_write.lua prepare
 
+docker run --name sysbench woongzz0110/sysbench:latest sysbench --db-driver=mysql --mysql-host=YOUR_HOST --mysql-port=YOUR_PORT --mysql-user=YOUR_USER --mysql-password=YOUR_PW /woongzz0110/sysbench/lua/oltp_read_write.lua run
+```
+
+---
+
+## Run By Script
+You can specify a script to run. Through this, it is possible to make a more scalable benchmark to multiple targets. Beware of permission.
+### RUN COMMAND
 ```
 docker run --name sysbench -v YOUR_DIR:/woongzz0110/sysbench/src/run woongzz0110/sysbench:latest
 ```
-
-
-- YOUR_DIR/sample.sh
+### YOUR_DIR/sample.sh
 ```
 # Setting
 export PGPASSWORD=postgres
@@ -28,11 +35,13 @@ $SB_CMD --time=2592000 --threads=10 /woongzz0110/sysbench/lua/oltp_read_write.lu
 $SB_CMD /woongzz0110/sysbench/lua/oltp_read_write.lua cleanup
 ```
 
-## Run By command
-docker run --rm --name sysbench woongzz0110/sysbench:dev sysbench --db-driver=mysql --mysql-host=YOUR_HOST --mysql-port=3308 --mysql-user=root --mysql-password=mysql /woongzz0110/sysbench/lua/oltp_read_write.lua run
+---
 
-## Lua
-- All lua files are located in `/woongzz0110/sysbench/lua` directory in the container.
+## LUA
 
-## Log
-- All log files are located in `woongzz0110/sysbench/log` directory in the container.
+All lua files are located in `/woongzz0110/sysbench/lua` directory in the container.
+
+---
+
+## LOG
+All log files are located in `woongzz0110/sysbench/log` directory in the container.
