@@ -2,9 +2,7 @@ name: Docker Image CI
 
 on:
   push:
-    branches: [ "master" ]
-  pull_request:
-    branches: [ "master" ]
+    tags: [ '*.*.*' ]
 
 jobs:
 
@@ -15,6 +13,6 @@ jobs:
     steps:
     - uses: actions/checkout@v3
     - name: Build the Docker image
-      run: docker build . --file Dockerfile --tag woongzz0110/sysbench:$(date +%s)
+      run: docker build . --file Dockerfile --tag woongzz0110/sysbench:${{ steps.meta.outputs.tags }}
     - name: Push the Docker image
-      run: docker push woongzz0110/sysbench
+      run: docker push woongzz0110/sysbench:${{ steps.meta.outputs.tags }}
