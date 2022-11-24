@@ -17,7 +17,7 @@ do
 done
 
 if [ "$TAG" != "" ]; then
-    echo "** TAG **"
+    echo "** TAG: $TAG **"
     git tag $TAG
     echo
 fi
