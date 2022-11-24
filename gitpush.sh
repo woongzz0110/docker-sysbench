@@ -15,14 +15,14 @@ do
 done
 
 if [ "$TAG" != "" ]; then
-    echo "TAG"
+    echo "** TAG **"
     git tag $TAG
     echo
 fi
-echo "COMMIT"
+echo "** COMMIT **"
 git commit --allow-empty-message -am "$NOW: $MESSAGE"
 echo
 
-echo "PUSH"
+echo "** PUSH **"
 git push https://$GITHUB_USERNAME:$GITHUB_PASSWORD@$GITHUB_URL master --follow-tags --force
 echo
