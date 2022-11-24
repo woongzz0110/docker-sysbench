@@ -1,7 +1,7 @@
 #!/bin/bash
 
 GITHUB_USERNAME="woongzz0110"
-GITHUB_PASSWORD="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"
+GITHUB_PASSWORD="tw161379!!"
 GITHUB_URL="github.com/woongzz0110/docker-sysbench.git"
 
 NOW=`date`
