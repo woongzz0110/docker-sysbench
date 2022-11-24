@@ -33,3 +33,6 @@ docker run --rm --name sysbench woongzz0110/sysbench:dev sysbench --db-driver=my
 
 ## Lua
 - All lua files are located in `/woongzz0110/sysbench/lua` directory in the container.
+
+## Log
+- All log files are located in `woongzz0110/sysbench/log` directory in the container.
