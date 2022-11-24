@@ -2,7 +2,7 @@
 
 GITHUB_USERNAME="woongzz0110"
 GITHUB_PASSWORD="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"
-GITHUB_URL="github.com/woongzz0110/docker-sysbench.git"
+GITHUB_URL="https://github.com/woongzz0110/docker-sysbench.git"
 
 NOW=`date`
 
@@ -14,6 +14,9 @@ do
     esac
 done
 
+echo "** CONFIG **"
+git config --global credential.helper "cache --timeout=2592000"
+
 if [ "$TAG" != "" ]; then
     echo "** TAG **"
     git tag $TAG
@@ -24,5 +27,5 @@ git commit --allow-empty-message -am "$NOW: $MESSAGE"
 echo
 
 echo "** PUSH **"
-git push https://$GITHUB_USERNAME:$GITHUB_PASSWORD@$GITHUB_URL master --follow-tags --force
+git push https://github.com/woongzz0110/docker-sysbench.git master --follow-tags --force
 echo
