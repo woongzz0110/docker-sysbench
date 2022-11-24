@@ -1,0 +1,3 @@
+./publish.sh
+./gitpush.sh
+./gitpull.sh
