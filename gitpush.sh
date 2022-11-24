@@ -8,6 +8,7 @@ do
     esac
 done
 
+git fetch
 git add .
 if [ "$TAG" != "" ]; then
     git tag $TAG
