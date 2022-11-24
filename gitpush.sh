@@ -10,6 +10,10 @@ do
     esac
 done
 
+echo "** ADD **"
+git add .
+echo
+
 if [ "$TAG" != "" ]; then
     echo "** TAG: $TAG **"
     git tag $TAG
