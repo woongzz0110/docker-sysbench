@@ -18,12 +18,11 @@ RUN make install
 ########################
 
 # make workdir
-RUN mkdir -p ${SB_HOME}/lua
-RUN mkdir -p ${SB_HOME}/src/run
-RUN mkdir -p ${SB_HOME}/log
-RUN chown -R 1001 ${SB_HOME}/log
-
+RUN adduser --disabled-password --no-create-home -u 1100 -g 1100 woongzz0110
+RUN mkdir -p ${SB_HOME}/lua ${SB_HOME}/log ${SB_HOME}/src/run
+RUN chown -R woongzz0110:woongzz0110 ${SB_HOME}
 WORKDIR ${SB_HOME}
+
 RUN cp -rf /clone/sysbench/src/lua/*.lua ${SB_HOME}/lua
 RUN rm -rf /clone
 
@@ -34,6 +33,6 @@ RUN chmod +x -R ${SB_HOME}/src/run
 ADD ./entrypoint.sh /entrypoint.sh
 RUN chmod +x -R /entrypoint.sh
 
-USER 1001
+USER woongzz0110
 VOLUME ["${SB_HOME}"]
 entrypoint ["/entrypoint.sh"]
