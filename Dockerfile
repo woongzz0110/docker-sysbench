@@ -16,19 +16,19 @@ RUN make install
 ########################
 
 # make workdir
-RUN mkdir -p /woongzz0110/sysbench/lua
-RUN mkdir -p /woongzz0110/sysbench/src/run
-RUN mkdir -p /woongzz0110/sysbench/log
-RUN chown -R 1001 /woongzz0110/sysbench/log
-WORKDIR /woongzz0110/sysbench
+RUN mkdir -p /opt/woongzz0110/sysbench/lua
+RUN mkdir -p /opt/woongzz0110/sysbench/src/run
+RUN mkdir -p /opt/woongzz0110/sysbench/log
+RUN chown -R 1001 /opt/woongzz0110/sysbench/log
+WORKDIR /opt/woongzz0110/sysbench
 
-RUN cp -rf /clone/sysbench/src/lua/*.lua /woongzz0110/sysbench/lua
+RUN cp -rf /clone/sysbench/src/lua/*.lua /opt/woongzz0110/sysbench/lua
 RUN rm -rf /clone
 
-ADD ./src/run /woongzz0110/sysbench/src/run
-RUN chmod +x -R /woongzz0110/sysbench/src/run
+ADD ./src/run /opt/woongzz0110/sysbench/src/run
+RUN chmod +x -R /opt/woongzz0110/sysbench/src/run
 
-VOLUME [ "/woongzz0110/sysbench" ]
+VOLUME [ "/opt/woongzz0110/sysbench" ]
 ########################
 
 ADD ./src/entrypoint.sh /entrypoint.sh
