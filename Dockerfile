@@ -1,4 +1,6 @@
-FROM alpine:latest
+FROM alpine:3.17
+
+ENV SB_HOME=/opt/woongzz0110/sysbench
 
 RUN apk update
 RUN apk --no-cache add bash git autoconf build-base \
@@ -16,23 +18,22 @@ RUN make install
 ########################
 
 # make workdir
-RUN mkdir -p /opt/woongzz0110/sysbench/lua
-RUN mkdir -p /opt/woongzz0110/sysbench/src/run
-RUN mkdir -p /opt/woongzz0110/sysbench/log
-RUN chown -R 1001 /opt/woongzz0110/sysbench/log
-WORKDIR /opt/woongzz0110/sysbench
+RUN mkdir -p ${SB_HOME}/lua
+RUN mkdir -p ${SB_HOME}/src/run
+RUN mkdir -p ${SB_HOME}/log
+RUN chown -R 1001 ${SB_HOME}/log
 
-RUN cp -rf /clone/sysbench/src/lua/*.lua /opt/woongzz0110/sysbench/lua
+WORKDIR ${SB_HOME}
+RUN cp -rf /clone/sysbench/src/lua/*.lua ${SB_HOME}/lua
 RUN rm -rf /clone
 
-ADD ./src/run /opt/woongzz0110/sysbench/src/run
-RUN chmod +x -R /opt/woongzz0110/sysbench/src/run
-
-VOLUME [ "/opt/woongzz0110/sysbench" ]
+ADD ./src/run ${SB_HOME}/src/run
+RUN chmod +x -R ${SB_HOME}/src/run
 ########################
 
-ADD ./src/entrypoint.sh /entrypoint.sh
+ADD ./entrypoint.sh /entrypoint.sh
 RUN chmod +x -R /entrypoint.sh
 
 USER 1001
-CMD [ "/entrypoint.sh" ]
+VOLUME ["${SB_HOME}"]
+entrypoint ["/entrypoint.sh"]
